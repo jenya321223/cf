@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Еда — Cyber Zone</title><link rel="stylesheet" href="style.css"><script src="script.js"></script></head>
+<body><header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a class="" href="index.html">Главная</a><a class="" href="prices.html">Цены</a><a class="" href="pc.html">ПК</a><a class="" href="games.html">Игры</a><a class="active" href="food.html">Еда</a><a class="" href="about.html">О нас</a><a class="" href="contacts.html">Контакты</a><a class="" href="login.html">Вход</a><a class="" href="booking.html">Бронирование</a></nav></div></header>
+<main><div class="container"><h1 class="page-title">Еда и напитки</h1><p class="subtitle">Заказывайте прямо во время игры.</p><div class="grid"><div class="card"><div class="icon">🍔</div><h3>Бургер</h3><div class="price">250 ₽</div><button class="btn" onclick="orderFood("\u0411\u0443\u0440\u0433\u0435\u0440",250)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Картофель фри</h3><div class="price">150 ₽</div><button class="btn" onclick="orderFood("\u041a\u0430\u0440\u0442\u043e\u0444\u0435\u043b\u044c \u0444\u0440\u0438",150)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Пицца</h3><div class="price">400 ₽</div><button class="btn" onclick="orderFood("\u041f\u0438\u0446\u0446\u0430",400)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Кола</h3><div class="price">120 ₽</div><button class="btn" onclick="orderFood("\u041a\u043e\u043b\u0430",120)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Энергетик</h3><div class="price">180 ₽</div><button class="btn" onclick="orderFood("\u042d\u043d\u0435\u0440\u0433\u0435\u0442\u0438\u043a",180)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Вода</h3><div class="price">80 ₽</div><button class="btn" onclick="orderFood("\u0412\u043e\u0434\u0430",80)">Заказать</button></div></div><div id="orders" class="card" style="margin-top:25px"></div></div><script>
+function orderFood(name,price){
+ if(!requireLogin())return;
+ let x=getOrders(); x.push({user:currentUser(),item:name,price:Number(price),time:new Date().toLocaleString('ru-RU')}); saveOrders(x);
+ alert('Заказ добавлен: '+name);
+ renderOrders();
+}
+function renderOrders(){
+ const box=document.getElementById('orders'); if(!box)return;
+ const x=getOrders().filter(o=>o.user===currentUser());
+ box.innerHTML=x.length?'<h2>Мои заказы</h2>'+x.map((o,i)=>`<div class="notice">${o.item} — ${o.price} ₽ <small>${o.time}</small></div>`).join(''):'<p class="subtitle">У вас пока нет заказов.</p>';
+}
+document.addEventListener('DOMContentLoaded',renderOrders);
+</script></main><footer>© 2026 Cyber Zone — компьютерный клуб</footer></body></html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Вход — Cyber Zone</title><link rel="stylesheet" href="style.css"><script src="script.js"></script></head>
+<body><header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a class="" href="index.html">Главная</a><a class="" href="prices.html">Цены</a><a class="" href="pc.html">ПК</a><a class="" href="games.html">Игры</a><a class="" href="food.html">Еда</a><a class="" href="about.html">О нас</a><a class="" href="contacts.html">Контакты</a><a class="active" href="login.html">Вход</a><a class="" href="booking.html">Бронирование</a></nav></div></header>
+<main><div class="container"><h1 class="page-title">Аккаунт</h1>
+<div id="account" class="card" style="max-width:520px;margin:20px auto"></div>
+<div class="form"><h2>Вход</h2><label>Логин</label><input id="loginUser"><label>Пароль</label><input id="loginPass" type="password"><button class="btn" onclick="loginUser()">Войти</button></div>
+<div class="form"><h2>Регистрация</h2><label>Логин</label><input id="regUser"><label>Пароль</label><input id="regPass" type="password"><button class="btn" onclick="registerUser()">Зарегистрироваться</button></div></div>
+<script>
+function registerUser(){
+ const u=document.getElementById('regUser').value.trim(),p=document.getElementById('regPass').value;
+ if(!u||!p){alert('Заполните логин и пароль');return}
+ let users=getUsers();
+ if(users.some(x=>x.u===u)){alert('Такой пользователь уже существует');return}
+ users.push({u,p});saveUsers(users);setCurrentUser(u);alert('Регистрация успешна!');location.href='index.html';
+}
+function loginUser(){
+ const u=document.getElementById('loginUser').value.trim(),p=document.getElementById('loginPass').value;
+ const ok=getUsers().find(x=>x.u===u&&x.p===p);
+ if(!ok){alert('Неверный логин или пароль');return}
+ setCurrentUser(u);location.href='index.html';
+}
+function renderAccount(){
+ const box=document.getElementById('account');
+ const u=currentUser();
+ if(!u){box.innerHTML='<p>Вы не вошли в аккаунт.</p>';return}
+ const b=getBookings().filter(x=>x.user===u),o=getOrders().filter(x=>x.user===u);
+ box.innerHTML=`<h2>Личный кабинет</h2><p style="margin-top:10px">Пользователь: <b>${u}</b></p><div class="notice">Бронирований: ${b.length} · Заказов еды: ${o.length}</div><button class="btn danger" onclick="logout()" style="margin-top:15px">Выйти</button>`;
+}
+document.addEventListener('DOMContentLoaded',renderAccount);
+</script></main><footer>© 2026 Cyber Zone — компьютерный клуб</footer></body></html>

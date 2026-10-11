@@ -1,0 +1,42 @@
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#090b13;color:#f4f5f7;line-height:1.5}
+a{text-decoration:none;color:inherit}
+header{background:#101421;border-bottom:1px solid #272d3d;position:sticky;top:0;z-index:10}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;gap:20px}
+.logo{font-size:25px;font-weight:800;color:#7c5cff}
+.logo span{color:#fff}
+nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+nav a{padding:9px 12px;border-radius:9px;color:#c9ceda;font-size:14px}
+nav a:hover,nav a.active{background:#7c5cff;color:#fff}
+.container{max-width:1100px;margin:auto;padding:45px 20px}
+.hero{min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle at 50% 20%,#241b52 0,#090b13 55%)}
+.hero h1{font-size:58px;margin-bottom:15px}
+.hero h1 span{color:#7c5cff}
+.hero p{max-width:650px;margin:0 auto 25px;color:#b8becb;font-size:18px}
+.btn{display:inline-block;border:0;border-radius:10px;padding:12px 20px;background:#7c5cff;color:#fff;cursor:pointer;font-weight:700}
+.btn:hover{background:#6848ef}
+.btn.secondary{background:#202638}
+.btn.danger{background:#d04455}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:25px}
+.card{background:#111624;border:1px solid #252c3d;border-radius:15px;padding:22px}
+.card h3{margin-bottom:8px}
+.card p{color:#aeb5c3}
+.price{font-size:30px;color:#8e74ff;font-weight:800;margin:12px 0}
+.page-title{text-align:center;margin-bottom:15px;font-size:38px}
+.subtitle{text-align:center;color:#aeb5c3;margin-bottom:30px}
+.form{max-width:520px;margin:25px auto;background:#111624;border:1px solid #252c3d;padding:25px;border-radius:15px}
+label{display:block;margin:12px 0 6px;color:#cbd0da}
+input,select,textarea{width:100%;padding:12px;border-radius:9px;border:1px solid #333b4f;background:#0b0e17;color:#fff}
+.form .btn{margin-top:18px;width:100%}
+.notice{padding:13px;border-radius:9px;background:#171d2d;margin-top:15px;color:#cbd0da}
+.hidden{display:none!important}
+table{width:100%;border-collapse:collapse;margin-top:20px;background:#111624;border-radius:12px;overflow:hidden}
+th,td{padding:12px;border-bottom:1px solid #272e40;text-align:left}
+th{color:#a995ff}
+footer{text-align:center;padding:30px;color:#777f90;border-top:1px solid #202637;margin-top:40px}
+.tariff{min-height:160px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(135deg,#171b2d,#2b2052);position:relative;overflow:hidden}
+.tariff:before{content:"CYBER";position:absolute;right:-5px;top:10px;font-size:50px;font-weight:900;color:#ffffff08}
+.icon{font-size:40px;margin-bottom:12px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+@media(max-width:750px){.nav{flex-direction:column}.hero h1{font-size:40px}nav{justify-content:center}.container{padding:30px 15px}}
