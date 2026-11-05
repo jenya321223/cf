@@ -3,32 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Еда и напитки в Cyber Zone — заказ во время игры</title>
-<meta name="description" content="Еда и напитки в Cyber Zone: бургеры, пицца, картофель фри, кола, энергетики. Заказ прямо во время игры.">
+<title>Меню еды и напитков в Cyber Zone — заказ во время игры</title>
+<meta name="description" content="Обновленное меню бара Cyber Zone: сочные бургеры, пицца, начос, картофель фри, кола, энергетики и милкшейки. Заказ прямо за игровым ПК.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://jenya321223.github.io/cf/food.html">
-<meta property="og:title" content="Еда и напитки в Cyber Zone">
-<meta property="og:description" content="Бургеры, пицца, кола. Заказ прямо во время игры.">
+<meta property="og:title" content="Меню еды и напитков в Cyber Zone">
+<meta property="og:description" content="Бургеры, пицца, начос и напитки. Заказ прямо во время игры.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jenya321223.github.io/cf/food.html">
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 </head>
 <body>
-<header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a href="index.html">Главная</a><a href="prices.html">Цены</a><a href="pc.html">ПК</a><a href="games.html">Игры</a><a class="active" href="food.html">Еда</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a><a href="login.html">Вход</a><a href="booking.html">Бронирование</a></nav></div></header>
-<main><div class="container"><h1 class="page-title">Еда и напитки</h1><p class="subtitle">Заказывайте прямо во время игры.</p><div class="grid"><div class="card"><div class="icon">🍔</div><h3>Бургер</h3><div class="price">250 ₽</div><button class="btn" onclick="orderFood('Бургер',250)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Картофель фри</h3><div class="price">150 ₽</div><button class="btn" onclick="orderFood('Картофель фри',150)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Пицца</h3><div class="price">400 ₽</div><button class="btn" onclick="orderFood('Пицца',400)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Кола</h3><div class="price">120 ₽</div><button class="btn" onclick="orderFood('Кола',120)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Энергетик</h3><div class="price">180 ₽</div><button class="btn" onclick="orderFood('Энергетик',180)">Заказать</button></div><div class="card"><div class="icon">🍔</div><h3>Вода</h3><div class="price">80 ₽</div><button class="btn" onclick="orderFood('Вода',80)">Заказать</button></div></div><div id="orders" class="card mt-25"></div></div><script>
-function orderFood(name,price){
- if(!requireLogin())return;
- let x=getOrders(); x.push({user:currentUser(),item:name,price:Number(price),time:new Date().toLocaleString('ru-RU')}); saveOrders(x);
- alert('Заказ добавлен: '+name);
- renderOrders();
-}
-function renderOrders(){
- const box=document.getElementById('orders'); if(!box)return;
- const x=getOrders().filter(o=>o.user===currentUser());
- box.innerHTML=x.length?'<h2>Мои заказы</h2>'+x.map((o,i)=>`<div class="notice">${o.item} — ${o.price} ₽ <small>${o.time}</small></div>`).join(''):'<p class="subtitle">У вас пока нет заказов.</p>';
-}
-document.addEventListener('DOMContentLoaded',renderOrders);
-</script></main>
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html">CYBER <span>ZONE</span></a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="news.html">Новости</a>
+      <a href="prices.html">Цены</a>
+      <a href="pc.html">ПК</a>
+      <a href="games.html">Игры</a>
+      <a class="active" href="food.html">Еда</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="login.html">Вход</a>
+      <a href="booking.html">Бронирование</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <h1 class="page-title">Меню бара и кухни</h1>
+    <p class="subtitle">Обновлено сегодня. Заказывайте прямо во время игры!</p>
+    
+    <div class="grid">
+      <!-- Бургер -->
+      <div class="card">
+        <div class="icon">🍔</div>
+        <h3>Фирменный Бургер</h3>
+        <p>Двойная котлета, сыр, соус</p>
+        <div class="price">290 ₽</div>
+        <button class="btn" onclick="orderFood('Фирменный Бургер',290)">Заказать</button>
+      </div>
+      
+      <!-- Картошка -->
+      <div class="card">
+        <div class="icon">🍟</div>
+        <h3>Картофель фри</h3>
+        <p>Хрустящий, с соусом на выбор</p>
+        <div class="price">170 ₽</div>
+        <button class="btn" onclick="orderFood('Картофель фри',170)">Заказать</button>
+      </div>
+      
+      <!-- Пицца -->
+      <div class="card">
+        <div class="icon">🍕</div>
+        <h3>Пицца Пепперони</h3>
+        <p>30 см, острая, с сыром</p>
+        <div class="price">450 ₽</div>
+        <button class="btn" onclick="orderFood('Пицца Пепперони',450)">Заказать</button>
+      </div>
+
+      <!-- НОВОЕ БЛЮДО 1: Начос -->
+      <div class="card">
+        <div class="icon">🌮</div>
+        <h3>Начос с сыром</h3>
+        <p>Чипсы, сырный соус, халапеньо</p>
+        <div class="price">220 ₽</div>
+        <button class="btn" onclick="orderFood('Начос с сыром',220)">Заказать</button>
+      </div>
+      
+      <!-- Кола -->
+      <div class="card">
+        <div class="icon">🥤</div>
+        <h3>Кола (0.5 л)</h3>
+        <p>Классическая, со льдом</p>
+        <div class="price">130 ₽</div>
+        <button class="btn" onclick="orderFood('Кола',130)">Заказать</button>
+      </div>
+      
+      <!-- Энергетик -->
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Энергетик</h3>
+        <p>Для долгих игровых сессий</p>
+        <div class="price">190 ₽</div>
+        <button class="btn" onclick="orderFood('Энергетик',190)">Заказать</button>
+      </div>
+
+      <!-- НОВОЕ БЛЮДО 2: Милкшейк -->
+      <div class="card">
+        <div class="icon">🥤</div>
+        <h3>Милкшейк</h3>
+        <p>Ванильный, шоколадный или клубничный</p>
+        <div class="price">200 ₽</div>
+        <button class="btn" onclick="orderFood('Милкшейк',200)">Заказать</button>
+      </div>
+
+      <!-- Вода -->
+      <div class="card">
+        <div class="icon">💧</div>
+        <h3>Вода (0.5 л)</h3>
+        <p>Питьевая, без газа</p>
+        <div class="price">90 ₽</div>
+        <button class="btn" onclick="orderFood('Вода',90)">Заказать</button>
+      </div>
+    </div>
+    
+    <div id="orders" class="card mt-25"></div>
+  </div>
+  
+  <script>
+    function orderFood(name,price){
+      if(!requireLogin())return;
+      let x=getOrders(); 
+      x.push({
+        user:currentUser(),
+        item:name,
+        price:Number(price),
+        time:new Date().toLocaleString('ru-RU')
+      }); 
+      saveOrders(x);
+      alert('Заказ добавлен: '+name);
+      renderOrders();
+    }
+    function renderOrders(){
+      const box=document.getElementById('orders'); if(!box)return;
+      const x=getOrders().filter(o=>o.user===currentUser());
+      box.innerHTML=x.length?'<h2>Мои заказы</h2>'+x.map((o,i)=>`<div class="notice">${o.item} — ${o.price} ₽ <small>${o.time}</small></div>`).join(''):'<p class="subtitle">У вас пока нет заказов.</p>';
+    }
+    document.addEventListener('DOMContentLoaded',renderOrders);
+  </script>
+</main>
 <footer>© 2026 Cyber Zone — компьютерный клуб</footer>
-</body></html>
+</body>
+</html>
