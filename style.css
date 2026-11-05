@@ -40,3 +40,10 @@ footer{text-align:center;padding:30px;color:#777f90;border-top:1px solid #202637
 .icon{font-size:40px;margin-bottom:12px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
 @media(max-width:750px){.nav{flex-direction:column}.hero h1{font-size:40px}nav{justify-content:center}.container{padding:30px 15px}}
+.mt-10{margin-top:10px}
+.mt-15{margin-top:15px}
+.mt-20{margin-top:20px}
+.mt-25{margin-top:25px}
+.booking-box{max-width:700px;margin:20px auto}
+.account-box{max-width:520px;margin:20px auto}
+.hero-link{color:#7c5cff;text-decoration:underline}
