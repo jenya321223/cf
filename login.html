@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Вход — Cyber Zone</title><link rel="stylesheet" href="style.css"><script src="script.js"></script></head>
-<body><header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a class="" href="index.html">Главная</a><a class="" href="prices.html">Цены</a><a class="" href="pc.html">ПК</a><a class="" href="games.html">Игры</a><a class="" href="food.html">Еда</a><a class="" href="about.html">О нас</a><a class="" href="contacts.html">Контакты</a><a class="active" href="login.html">Вход</a><a class="" href="booking.html">Бронирование</a></nav></div></header>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Вход — Cyber Zone</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a href="index.html">Главная</a><a href="prices.html">Цены</a><a href="pc.html">ПК</a><a href="games.html">Игры</a><a href="food.html">Еда</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a><a class="active" href="login.html">Вход</a><a href="booking.html">Бронирование</a></nav></div></header>
 <main><div class="container"><h1 class="page-title">Аккаунт</h1>
-<div id="account" class="card" style="max-width:520px;margin:20px auto"></div>
+<div id="account" class="card account-box"></div>
 <div class="form"><h2>Вход</h2><label>Логин</label><input id="loginUser"><label>Пароль</label><input id="loginPass" type="password"><button class="btn" onclick="loginUser()">Войти</button></div>
 <div class="form"><h2>Регистрация</h2><label>Логин</label><input id="regUser"><label>Пароль</label><input id="regPass" type="password"><button class="btn" onclick="registerUser()">Зарегистрироваться</button></div></div>
 <script>
@@ -25,7 +33,9 @@ function renderAccount(){
  const u=currentUser();
  if(!u){box.innerHTML='<p>Вы не вошли в аккаунт.</p>';return}
  const b=getBookings().filter(x=>x.user===u),o=getOrders().filter(x=>x.user===u);
- box.innerHTML=`<h2>Личный кабинет</h2><p style="margin-top:10px">Пользователь: <b>${u}</b></p><div class="notice">Бронирований: ${b.length} · Заказов еды: ${o.length}</div><button class="btn danger" onclick="logout()" style="margin-top:15px">Выйти</button>`;
+ box.innerHTML=`<h2>Личный кабинет</h2><p class="mt-10">Пользователь: <b>${u}</b></p><div class="notice">Бронирований: ${b.length} · Заказов еды: ${o.length}</div><button class="btn danger mt-15" onclick="logout()">Выйти</button>`;
 }
 document.addEventListener('DOMContentLoaded',renderAccount);
-</script></main><footer>© 2026 Cyber Zone — компьютерный клуб</footer></body></html>
+</script></main>
+<footer>© 2026 Cyber Zone — компьютерный клуб</footer>
+</body></html>
