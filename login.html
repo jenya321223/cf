@@ -18,6 +18,9 @@
 function registerUser(){
  const u=document.getElementById('regUser').value.trim(),p=document.getElementById('regPass').value;
  if(!u||!p){alert('Заполните логин и пароль');return}
+ // НОВАЯ ПРОВЕРКА БЕЗОПАСНОСТИ (пароль от 6 символов)
+ if(p.length < 6) { alert('Ошибка безопасности: Пароль должен быть не менее 6 символов!'); return; }
+ 
  let users=getUsers();
  if(users.some(x=>x.u===u)){alert('Такой пользователь уже существует');return}
  users.push({u,p});saveUsers(users);setCurrentUser(u);alert('Регистрация успешна!');location.href='index.html';
