@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Бронирование — Cyber Zone</title><link rel="stylesheet" href="style.css"><script src="script.js"></script></head>
-<body><header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a class="" href="index.html">Главная</a><a class="" href="prices.html">Цены</a><a class="" href="pc.html">ПК</a><a class="" href="games.html">Игры</a><a class="" href="food.html">Еда</a><a class="" href="about.html">О нас</a><a class="" href="contacts.html">Контакты</a><a class="" href="login.html">Вход</a><a class="active" href="booking.html">Бронирование</a></nav></div></header>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Бронирование — Cyber Zone</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="index.html">CYBER <span>ZONE</span></a><nav><a href="index.html">Главная</a><a href="prices.html">Цены</a><a href="pc.html">ПК</a><a href="games.html">Игры</a><a href="food.html">Еда</a><a href="about.html">О нас</a><a href="contacts.html">Контакты</a><a href="login.html">Вход</a><a class="active" href="booking.html">Бронирование</a></nav></div></header>
 <main><div class="container"><h1 class="page-title">Бронирование ПК</h1><p class="subtitle">Выберите тариф, дату и время.</p>
 <div class="form"><label>Тариф</label><select id="tariff"><option>Basic</option><option>Pro</option><option>Ultra</option><option>VIP</option></select>
 <label>Дата</label><input id="date" type="date"><label>Время</label><input id="time" type="time"><button class="btn" onclick="book()">Забронировать</button></div>
-<div id="myBookings" class="card" style="max-width:700px;margin:20px auto"></div></div><script>
+<div id="myBookings" class="card booking-box"></div></div><script>
 function book(){
  if(!requireLogin())return;
  const tariff=document.getElementById('tariff').value;
@@ -30,4 +38,6 @@ document.addEventListener('DOMContentLoaded',()=>{
  const d=document.getElementById('date'); if(d)d.min=new Date().toISOString().split('T')[0];
  renderBookings();
 });
-</script></main><footer>© 2026 Cyber Zone — компьютерный клуб</footer></body></html>
+</script></main>
+<footer>© 2026 Cyber Zone — компьютерный клуб</footer>
+</body></html>
