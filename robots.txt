@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /login.html
+Disallow: /booking.html
+
+Sitemap: https://jenya321223.github.io/cf/sitemap.xml
